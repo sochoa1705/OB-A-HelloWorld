@@ -1,0 +1,10 @@
+<h1>Hi, {{ name }}</h1>
+
+<h3 ngClass="greeting" id="name" [innerText]="name">
+    <!-- Value defined by property -->
+</h3>
+<!-- A event cast by () -->
+<button id="call-alert" (click)="sendMessageToParent()">Send Greeting Message to Parent Component</button>
+
+<!-- Calling a customized component -->
+<app-basic-list></app-basic-list>

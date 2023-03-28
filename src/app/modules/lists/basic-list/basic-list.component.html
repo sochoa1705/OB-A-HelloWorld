@@ -1,0 +1,36 @@
+<!-- Attribute Directives -->
+<p [ngStyle]="{color:'red', fontWeight:'bolder'}">Elements basic-list</p>
+
+<p ngClass="underline">Here we do the lists element iteretion and visualize them</p>
+<p [ngClass]="['underline', 'small']">Here we do the lists element iteretion and visualize them, applyng values as param on directive</p>
+<p [ngClass]="{underlin:false, small:true}">Conditional params as boolean values on directives</p>
+
+<!-- Structure Directives `*`-->
+
+
+
+<button (click)="changeLoading()">{{loading ? 'End Load':'Init Load'}}</button>
+
+<ng-container *ngIf="loading; else elseTemplate ">
+    <p>All done!</p>
+</ng-container>
+
+<ng-template #elseTemplate>
+    <p>Loading...</p>
+    <p>Wait for process finish</p>
+
+</ng-template>
+
+<!-- Explain ngFor -->
+<div *ngFor="let prod of elementList">
+    <p>{{prod.name}}</p>
+    <p>{{prod.price}}</p>
+    <p>{{prod.description}}</p>
+</div>
+<!-- Explain ngSwitch -->
+<div [ngSwitch]="color">
+    <p *ngSwitchCase="'red'">You picked red color</p>
+    <p *ngSwitchCase="'blue'">You picked blue color</p>
+    <p *ngSwitchCase="'green'">You picked green color</p>
+    <p *ngSwitchDefault>Pick again</p>
+</div>
