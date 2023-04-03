@@ -1,0 +1,25 @@
+<form [formGroup]="myArrayForm">
+    <div class="form-group">
+        <label>Form Value</label>
+        <!-- Using a angular pipe to serialize de object to JSON -->
+        <pre>{{ myArrayForm.value | json }}</pre>
+    </div>
+    <!-- Form Values -->
+    <input placeholder="Nombre" formControlName="name">
+    <input placeholder="Apellido" formControlName="lastName">
+    <!-- Phone Group Array -->
+    <div formArrayName="myArrayPhone">
+        <div *ngFor="let phone of myArrayFormPhone.controls; let i = index">
+            <div [formGroupName]="i">
+                <h5>Phone - {{i}}</h5>
+                <input placeholder="Prefix" formControlName="prefix">
+                <input placeholder="Phone Number" formControlName="number">
+                <button (click)="removePhone(i)">Remove Phone</button>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <!-- btn to add numbers -->
+    <button (click)="addPhone()">Add Phone</button>
+
+</form>

@@ -1,0 +1,42 @@
+<form [formGroup]="validForm" (submit)="submitForm()">
+    <div class="form-group">
+        <label>Form Value</label>
+        <!-- Using a angular pipe to serialize de object to JSON -->
+        <pre>{{ validForm.value | json }}</pre>
+    </div>
+    
+    <!-- form fields and errors messages -->
+    <input placeholder="Name" formControlName="name">
+    <div *ngIf="name?.errors?.['required'] && name?.touched">
+        <p [ngStyle]="{color: 'red'}">Name is required</p>        
+    </div>
+    <input placeholder="Lastname" formControlName="lastname">
+    <input type="number" placeholder="Age" formControlName="age">
+    <div *ngIf="age?.errors?.['min'] && age?.touched">
+        <p [ngStyle]="{color: 'red'}">Age are not lower than 18, You already are {{age?.errors?.['min'].actual}} </p>        
+    </div>
+    <div *ngIf="age?.errors?.['max'] && age?.touched">
+        <p [ngStyle]="{color: 'red'}">Age are not gratter than 99, You already are {{age?.errors?.['max'].actual}} </p>        
+    </div>
+    <input placeholder="Email" formControlName="email">
+    <div *ngIf="email?.errors?.['required'] && email?.touched">
+        <p [ngStyle]="{color: 'red'}">Email is required </p>        
+    </div>
+    <div *ngIf="email?.errors?.['email'] && email?.touched">
+        <p [ngStyle]="{color: 'red'}">please enter a valid email address</p>        
+    </div>
+    <input type="password" placeholder="Password" formControlName="password">
+    <div *ngIf="password?.errors?.['required'] && password?.touched">
+        <p [ngStyle]="{color: 'red'}">Password is required</p>        
+    </div>
+    <div *ngIf="password?.errors?.['pattern'] && password?.touched">
+        <p [ngStyle]="{color: 'red'}">please enter a valid password</p>        
+    </div>
+    <input type="checkbox" formControlName="confirmPassword"> I agree the password
+    <div *ngIf="confirmPassword?.errors?.['requiredTrue'] && confirmPassword?.touched">
+        <p [ngStyle]="{color: 'red'}">You must to agree the password </p>        
+    </div>
+
+    <!-- Btn only active when form is validated -->
+    <button type="submit" [disabled]="validForm.invalid" >Submit</button>
+</form>

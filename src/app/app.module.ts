@@ -9,19 +9,36 @@ import { ContactListComponent } from './components/contact-list/contact-list.com
 //Import the HttpClientModule
 import { HttpClientModule } from '@angular/common/http';
 import { LoginFormComponent } from './components/forms/login-form/login-form.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormComponent } from './components/forms/form/form.component';
+import { FormNestedComponent } from './components/forms/form-nested/form-nested.component';
+import { FormArrayComponent } from './components/forms/form-array/form-array.component';
+import { FormValidComponent } from './components/forms/form-valid/form-valid.component';
+//Import reactive forms module
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+//import matinput module
+import {MatInputModule} from '@angular/material/input';
 @NgModule({
   declarations: [ 
     AppComponent,
     GreetingComponent,
     ContactListComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    FormComponent,
+    FormNestedComponent,
+    FormArrayComponent,
+    FormValidComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ListsModule,
-    HttpClientModule
-
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

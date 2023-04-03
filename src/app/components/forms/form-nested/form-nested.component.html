@@ -1,0 +1,20 @@
+<form [formGroup]="myNestedForm">
+    <div class="form-group">
+        <label>Form Value</label>
+        <!-- Using a angular pipe to serialize de object to JSON -->
+        <pre>{{ myNestedForm.value | json }}</pre>
+    </div>
+    <!-- form values -->
+    <div formGroupName="street">
+        <p>Address Street:</p>
+        <input matInput placeholder="Street" formControlName="addressStreet">
+        <input matInput placeholder="Line" formControlName="line">
+    </div>
+    <br>
+    <div formGroupName="city">
+        <p>City Address:</p>
+        <input matInput placeholder="City" formControlName="addressCity">
+        <input matInput placeholder="Zip Code" formControlName="zip">
+    </div>
+
+</form>

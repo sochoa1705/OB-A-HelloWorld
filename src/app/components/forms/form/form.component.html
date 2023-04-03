@@ -1,0 +1,35 @@
+<!-- Basic Reactive Form -->
+<form [formGroup]="myForm" class="form-group">
+    <!-- Form value previews -->
+    <div class="form-group">
+        <label>Form Value</label>
+        <!-- Using a angular pipe to serialize de object to JSON -->
+        <pre>{{ myForm.value | json }}</pre>
+    </div>
+    <!-- form fields -->
+    <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Name" formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Lastname</mat-label>
+        <input matInput placeholder="Lastname" formControlName="lastname">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" formControlName="email">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Phone</mat-label>
+        <input matInput placeholder="Phone" formControlName="phone">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Address</mat-label>
+        <input matInput placeholder="Address" formControlName="address">
+    </mat-form-field>
+
+</form>
