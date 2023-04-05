@@ -1,0 +1,54 @@
+<ng-container>
+    <h1>Example Angular Native Pipes</h1>
+
+<!-- Dates -->
+<h2>Dates Pipes</h2>
+<p>mi birthday without pipe is: {{ dob }}</p>
+<p>mi birthday using pipe is: {{ dob | date }}</p>
+<p>mi birthday using basic pipe is: {{ dob | date:"dd-MM-yyyy" }}</p>
+
+<p>mi birthday using short date pipe is: {{ dob | date: "shortDate" }}</p>
+<p>mi birthday using full date pipe is: {{ dob | date: "fullDate" }}</p>
+
+<p>mi birthday using dinamyc date pipe is: {{ dob | date: dateFormat }}</p>
+
+<button (click)="changeDobFormat()">Change Format to {{!change ? 'Short': 'Full'}}</button>
+<br>
+<br>
+<h4>Welcome, {{name|uppercase}}</h4>
+<h4>Your username is, @{{name|lowercase}}</h4>
+
+<p>mi birthday using dinamyc date and Uppercase pipe is: {{ dob | date: dateFormat | uppercase }}</p>
+<p>mi birthday using dinamyc date and Lowercase pipe is: {{ dob | date: dateFormat | lowercase }}</p>
+
+<!-- Personalized pipe "multiply"-->
+<p>Result: {{2 | multiply:10}} points</p>
+
+<!-- Age Wizard Pipe -->
+<p>Age: {{ year | ageWizard}}</p>
+
+<!-- Calculate Points Pipe -->
+<p>Points: {{ player1 | calculatePoints}}</p>
+<p>Points: {{ player2 | calculatePoints}}</p>
+
+<!-- Decimal Pipe to represent pi number -->
+<p>Pi Number round to 3 decimals: {{pi| number:'.3-3'}}</p>
+<p>Pi Number round to five decimals: {{pi| number:'.5-5'}}</p>
+<p>Pi Number with 2 unit and round to eight decimals: {{pi| number:'2.8-8'}}</p>
+
+<!-- Currency Pipe -->
+<p>Price: {{price | currency:'USD'}}</p>
+<p>Price: {{price | currency:'EUR':true}}</p>
+<p>Price: {{price | currency:'USD':true:'.4-4'}}</p>
+
+<!-- JSON pipe -->
+<pre>Player One: {{player1|json}}</pre>
+<pre>Player Two: {{player2|json}}</pre>
+
+<!-- Percent Pipe -->
+<p>Percent: {{pi | percent:'.2-2'}}</p>
+
+<!-- Slice Pipe -->
+<p>Only first name: {{name|slice:0:5}}</p>
+
+</ng-container>

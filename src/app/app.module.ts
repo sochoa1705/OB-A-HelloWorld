@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -19,6 +19,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 //import matinput module
 import {MatInputModule} from '@angular/material/input';
+import { PipesExampleComponent } from './components/pipes-example/pipes-example.component';
+import { pipe } from 'rxjs';
+import { MultiplyPipe } from './pipes/multiply.pipe';
+import { AgeWizardPipe } from './pipes/age-wizard.pipe';
+import { CalculatePointsPipe } from './pipes/calculate-points.pipe';
+//import locale from '@angular/common/locales/en-GB';
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es-Ec';
+//registerLocaleData(localeEs, 'es-ES');
+
 @NgModule({
   declarations: [ 
     AppComponent,
@@ -28,7 +38,11 @@ import {MatInputModule} from '@angular/material/input';
     FormComponent,
     FormNestedComponent,
     FormArrayComponent,
-    FormValidComponent
+    FormValidComponent,
+    PipesExampleComponent,
+    MultiplyPipe,
+    AgeWizardPipe,
+    CalculatePointsPipe
   ],
   imports: [
     BrowserModule,
@@ -40,7 +54,13 @@ import {MatInputModule} from '@angular/material/input';
     MatFormFieldModule,
     MatInputModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: 'en-GB'
+    }
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
